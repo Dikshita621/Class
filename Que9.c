@@ -14,7 +14,7 @@ int main() {
     printf("Enter x3, y3: ");
     scanf("%d %d", &x3, &y3);
     
-    // Calculate the area of triangle formed by the three points (without 0.5 to avoid floating point)
+    // Calculate the area of triangle formed by the three points 
     area = x1*(y2 - y3) + x2*(y3 - y1) + x3*(y1 - y2);
     
     // Check if area is zero
