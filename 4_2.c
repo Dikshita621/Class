@@ -1,59 +1,28 @@
 #include <stdio.h>
 
-// Global variable declaration
-float globalVar;
+int g = 5;  // Global variable
 
-void setGlobalVar() {
-    printf("Enter initial value for the global variable: ");
-    scanf("%f", &globalVar);
-}
+int add(int n);
 
-void addValue(float val) {
-    globalVar += val;
-    printf("After adding %.2f, global variable: %.2f\n", val, globalVar);
-}
+int main()
+{
+    int x, res;
+    printf("Enter a number: ");
+    scanf("%d", &x);
 
-void subtractValue(float val) {
-    globalVar -= val;
-    printf("After subtracting %.2f, global variable: %.2f\n", val, globalVar);
-}
+    res = add(x);
 
-void multiplyValue(float val) {
-    globalVar *= val;
-    printf("After multiplying by %.2f, global variable: %.2f\n", val, globalVar);
-}
+    // printf("%d", t);  // Error: 't' is local to add() and not accessible here
 
-void divideValue(float val) {
-    if (val != 0) {
-        globalVar /= val;
-        printf("After dividing by %.2f, global variable: %.2f\n", val, globalVar);
-    } else {
-        printf("Error: Division by zero is not allowed.\n");
-    }
-}
-
-int main() {
-    float num;
-
-    setGlobalVar();
-
-    printf("Enter a value to add: ");
-    scanf("%f", &num);
-    addValue(num);
-
-    printf("Enter a value to subtract: ");
-    scanf("%f", &num);
-    subtractValue(num);
-
-    printf("Enter a value to multiply: ");
-    scanf("%f", &num);
-    multiplyValue(num);
-
-    printf("Enter a value to divide: ");
-    scanf("%f", &num);
-    divideValue(num);
-
-    printf("Final value of global variable: %.2f\n", globalVar);
+    printf("Global var from main: %d\n", g);
+    printf("Result of addition: %d\n", res);
 
     return 0;
+}
+
+int add(int n)
+{
+    int t = n + 5;  // Local variable 't'
+    printf("Access global var from function: %d\n", g);
+    return t;
 }
