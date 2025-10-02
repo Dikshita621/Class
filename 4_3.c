@@ -1,34 +1,29 @@
-#include <stdio.h>
+#include<stdio.h>
 
-int main() {
-    int mainVar;
-    printf("Enter a value for mainVar: ");
-    scanf("%d", &mainVar);
+int main()
+{
+    int a; // variable in main block
 
-    printf("mainVar in main block: %d\n", mainVar); // Accessible here [web:3]
+    printf("Enter a value for a: ");
+    scanf("%d", &a);
 
+    // Block 1: Using user input
     {
-        int innerVar;
-        printf("Enter a value for innerVar: ");
-        scanf("%d", &innerVar);
-
-        printf("mainVar inside inner block: %d\n", mainVar); // Accessible here [web:3]
-        printf("innerVar inside inner block: %d\n", innerVar); // Accessible here [web:3]
-
-        {
-            int nestedVar;
-            printf("Enter a value for nestedVar: ");
-            scanf("%d", &nestedVar);
-
-            printf("mainVar in nested block: %d\n", mainVar); // Accessible here [web:3]
-            printf("innerVar in nested block: %d\n", innerVar); // Accessible here [web:3]
-            printf("nestedVar in nested block: %d\n", nestedVar); // Accessible here [web:3]
-        }
-
-        // printf("nestedVar outside nested block: %d\n", nestedVar); // Compilation error: not accessible here [web:5]
+        int b = a + 10;
+        printf("Block 1 - a: %d, b: %d\n", a, b);
     }
+    // printf("Outside Block 1 - b: %d\n", b); // Error: b not accessible here
 
-    // printf("innerVar outside inner block: %d\n", innerVar); // Compilation error: not accessible here [web:5]
-    // printf("nestedVar outside nested block: %d\n", nestedVar); // Compilation error
+    // Block 2: Using another input
+    {
+        int c;
+        printf("Enter value for c (B 2): ");
+        scanf("%d", &c);
+        printf("Block 2 - a: %d, c= %d\n", a, c);
+    }
+    // printf("Outside Block 2 - c: %d\n", c); // Error: c not accessible here
+
+    printf("Outside all blocks - a: %d\n", a);
+
     return 0;
 }
