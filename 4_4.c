@@ -1,23 +1,26 @@
-int func(int a, int b) 
+ 
+#include<stdio.h> 
+ 
+int func(int x, int y) 
 { 
-static int value = 4; 
-value = value + a + b; 
-return value; 
+static int num = 4; 
+num = num+x+y; 
+return num; 
 }  
     
 int main() 
 { 
-    int num_1 , num_2 ; 
+    int num1 , num2 ; 
  
     printf("Enter two numbers: "); 
-    scanf("%d %d", &num_1, &num_2); 
+    scanf("%d %d", &num1, &num2); 
          
               //calling the function 
-    printf("\nResult of first call\n%d",func(num_1,num_2)); 
+    printf("\nResult of first call\n%d",func(num1,num2)); 
      
-    printf("\nResult of second call\n%d",func(num_1,num_2)); 
+    printf("\nResult of second call\n%d",func(num1,num2)); 
      
-    printf("\nResult of third call\n%d",func(num_1,num_2)); 
+    printf("\nResult of third call\n%d",func(num1,num2)); 
      
 return 0; 
  
